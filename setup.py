@@ -43,20 +43,20 @@ except:
 os.chdir("build_pipeline")
 
 try:
-    shutil.rmtree("curated_alignments/")
-    shutil.rmtree("muscle_alignments/")
-    shutil.rmtree("HMMs/")
-    shutil.rmtree("IMGT_sequence_files/")
+    # shutil.rmtree("curated_alignments/")
+    # shutil.rmtree("muscle_alignments/")
+    # shutil.rmtree("HMMs/")
+    # shutil.rmtree("IMGT_sequence_files/")
     os.mkdir(os.path.join(ANARCI_LOC, "dat"))
 except OSError:
     pass
 
 print('Downloading germlines from IMGT and building HMMs...')
-proc = subprocess.Popen(["bash", "RUN_pipeline.sh"], stdout = subprocess.PIPE, stderr = subprocess.PIPE)
-o, e = proc.communicate()
+#proc = subprocess.Popen(["bash", "RUN_pipeline.sh"], stdout = subprocess.PIPE, stderr = subprocess.PIPE)
+#o, e = proc.communicate()
 
-print(o)
-print(e)
+#print(o)
+#print(e)
 
 shutil.copy( "curated_alignments/germlines.py", ANARCI_LOC )
 shutil.copytree( "HMMs", os.path.join(ANARCI_LOC, "dat/HMMs/") )
